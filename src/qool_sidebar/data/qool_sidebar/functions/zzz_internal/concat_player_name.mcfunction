@@ -1,0 +1,1 @@
+$data modify storage qool_sidebar:storage fake_player_name set value "$(fake_player_name)$(p)$(temp_char)"
