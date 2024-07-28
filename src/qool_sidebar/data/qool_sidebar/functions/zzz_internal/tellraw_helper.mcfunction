@@ -1,0 +1,1 @@
+$tellraw @s [{"text":" - $(prefix): ["},{"text":"Copy","color":"red","clickEvent":{"action":"copy_to_clipboard","value":"$(command)"},"hoverEvent":{"action":"show_text","contents":"$(command)"}},{"text":"] ["},{"text":"Paste","color":"red","clickEvent":{"action":"suggest_command","value":"$(command)"},"hoverEvent":{"action":"show_text","contents":"$(command)"}},{"text":"]"}]
