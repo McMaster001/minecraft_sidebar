@@ -10,7 +10,7 @@ data modify storage qool_sidebar:storage temp_char set string storage qool_sideb
 data modify storage qool_sidebar:storage temp_name set string storage qool_sidebar:storage temp_name 1
 
 # concat current value fake_player_name with § and temp_char
-function qool_sidebar:zzz_internal/concat_player_name with storage qool_sidebar:storage
+function qool_sidebar_internal:concat_player_name with storage qool_sidebar:storage
 
 # loop until temp_name is empty
-function qool_sidebar:zzz_internal/build_fake_player with storage qool_sidebar:storage
+function qool_sidebar_internal:build_fake_player with storage qool_sidebar:storage
