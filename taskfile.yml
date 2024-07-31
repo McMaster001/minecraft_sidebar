@@ -1,0 +1,29 @@
+version: '3'
+
+dotenv: ['.env']
+interval: 500ms
+
+tasks:
+  install:
+    desc: Copies src/qool_sidebar to the DEPLOY_DIR from .env file
+    watch: true
+    sources:
+     - src/qool_sidebar/**/*
+    dir: '{{.USER_WORKING_DIR}}'
+    vars:
+      PACKAGE_NAME: "qool_sidebar"
+
+    cmds:
+      - cmd: powershell -c '$null = New-Item -Path {{.DEPLOY_DIR}} -ItemType "directory" -Force; Copy-Item -Path ./src/qool_sidebar -Destination {{.DEPLOY_DIR}}/{{.PACKAGE_NAME}} -Force -Recurse'
+
+  install.zip:
+    desc: Creates a zip archive for src/qool_sidebar and copies it to the DEPLOY_DIR from .env file
+    watch: true
+    sources:
+     - src/qool_sidebar/**/*
+    dir: '{{.USER_WORKING_DIR}}'
+    vars:
+      PACKAGE_NAME: "qool_sidebar"
+
+    cmds:
+      - cmd: powershell -c '$null = New-Item -Path {{.DEPLOY_DIR}} -ItemType "directory" -Force; Compress-Archive -Path ./src/qool_sidebar/* -DestinationPath {{.DEPLOY_DIR}}/{{.PACKAGE_NAME}}.zip -Force'
